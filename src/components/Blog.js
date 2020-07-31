@@ -8,7 +8,7 @@ const Blog = ({ deleteAction,updateAction,blog }) => {
 
   return (
     <div className = "blog">
-      {blog.title} by {blog.author} <button onClick = {() => setDetailsVisible(!detailsVisible)}>{detailsVisible ? 'Hide':'ShowDetails'}</button>
+      {blog.title} by {blog.author} <button id="btn_showDetail" onClick = {() => setDetailsVisible(!detailsVisible)}>{detailsVisible ? 'Hide':'ShowDetails'}</button>
       <BlogDetail deleteAction = {deleteAction} updateAction = {updateAction} blog={blog} visible={detailsVisible}></BlogDetail>
     </div>)
 }

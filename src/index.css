@@ -16,6 +16,23 @@
 .blog {
   margin-top:10px;
   padding: 5px;
-  
+  width:50%;
   border:1px solid black;
+}
+
+#btn_delete{
+  padding:2px;
+  background-color: rgb(235, 96, 62);
+  margin-top:5px
+}
+
+#btn_like{
+  padding:2px;
+  background-color: rgb(62, 201, 235);
+  margin-top:5px
+}
+
+#btn_showDetail{
+  font-size: 8px;
+
 }

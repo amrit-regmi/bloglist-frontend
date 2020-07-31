@@ -122,7 +122,7 @@ const App = () => {
         }))
         notify ('success','Blog removed')
       }catch(exception) {
-        notify('error','Couldnot delte the Blog')
+        notify('error','exception')
       }
 
     }

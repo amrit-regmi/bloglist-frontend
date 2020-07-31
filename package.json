@@ -9,16 +9,26 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.1"
   },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest/globals": true,
+    "cypress/globals": true
+},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "plugins": [
+    "react", "jest", "cypress"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -35,6 +45,8 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
+    "cypress": "^4.11.0",
+    "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-jest": "^23.20.0"
   }
 }
