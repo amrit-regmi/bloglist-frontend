@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const BlogDetail = ({ deleteAction,updateAction,blog,visible }) => {
-  const currentUser = JSON.parse(window.localStorage.getItem('loggedBlogappUser')).username
+  const currentUser = JSON.parse(window.localStorage.getItem('loggedBlogappUser')) || null
 
   const deleteButton = (blog,currentUser) => {
-    if(currentUser === blog.user.username){
+    if(currentUser !== null && currentUser.username === blog.user.username){
       return (<button onClick ={() => deleteAction(blog) }>Delete</button>)
     }
     return null
@@ -14,7 +14,7 @@ const BlogDetail = ({ deleteAction,updateAction,blog,visible }) => {
   const visibility = { display: visible ? '':'none' }
   return (
 
-    <div style={visibility} >{blog.url} <br></br>
+    <div className = 'blog_detail' style={visibility} >{blog.url} <br></br>
       Likes: {blog.likes} <button onClick = { () => updateAction(blog)}> Like</button><br></br>
       Posted By: {blog.user.name }<br></br>
       {deleteButton(blog,currentUser)}
