@@ -26,14 +26,16 @@ const App = () => {
     requestBlogs()
   }, [])
 
+  /*
   useEffect(() => {
     //const sorted = [...blogs].sort((a,b) => b.likes-a.likes)
     //setBlogs(sorted)
     /*Directly modifying the state variable is not a good idea but
     couldn't think of other solution to implement sort on update withot making a query
-    */
+    *
+
     blogs.sort((a,b) => b.likes-a.likes)
-  }, [blogs])
+  }, [blogs])*/
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
@@ -100,12 +102,15 @@ const App = () => {
     const blogObject = { id:blog.id, user:blog.user.id, title:blog.title, author:blog.author, url:blog.url, likes:blog.likes+1 }
     try{
       const result = await blogService.update(blogObject)
-      setBlogs(blogs.map( b => {
+      const updatedList = blogs.map( b => {
         if(b.id === result.id) {
           b.likes = result.likes
         }
         return b
-      }))
+      })
+
+      updatedList.sort((a,b) => b.likes-a.likes)
+      setBlogs(updatedList)
 
     }catch(exception) {
       console.log(exception)
